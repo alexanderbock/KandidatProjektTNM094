@@ -31,29 +31,8 @@ target_compile_features("${PROJECT_NAME}" PUBLIC cxx_std_11)
 install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
 install(FILES "main.cpp" DESTINATION src)
 
-set(LWS_WITH_SSL OFF CACHE BOOL "") # Disable SSL requirement
-
+include_directories(${SGCT_INCLUDE_DIRECTORY} libwebsockets/include)
 add_subdirectory(libwebsockets)
-
-# find_library(LIBWEBSOCKETS_LIBRARY
-# 	NAMES websockets REQUIRED)
-# find_path(LIBWEBSOCKETS_INCLUDE_DIRECTORY
-# 		NAMES libwebsockets
-# 		REQUIRED)
-
-# if(NOT LIBWEBSOCKETS_INCLUDE_DIRECTORY)
-# find_path(LIBWEBSOCKETS_INCLUDE_DIRECTORY
-# 		libwebsockets.h
-# 		REQUIRED)
-# endif()
-
-# include_directories(${SGCT_INCLUDE_DIRECTORY} ${LIBWEBSOCKETS_INCLUDE_DIRECTORY})
-
-include_directories(${SGCT_INCLUDE_DIRECTORY} ${CMAKE_CURRENT_SOURCE_DIR}/libwebsockets/include)
-
-
-set(SGCT_LIGHT_ONLY ON CACHE BOOL "") # We only want SGCT_LIGHT to be build
-set(JPEG_TURBO_WITH_SIMD OFF CACHE BOOL "") # This removes the requirement for nasm
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/sgct)
 
 target_include_directories("${PROJECT_NAME}" SYSTEM PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/sgct/include)
