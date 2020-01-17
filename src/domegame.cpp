@@ -173,7 +173,7 @@ void DomeGame::init() {
 
 
 	
-	for (int i = 0; i <= 9; i++)
+	for (int i = 0; i <= 29; i++)
 		sgct::TextureManager::instance()->loadTexture("player" + std::to_string(i), rootDir + "/Images/avatar" + std::to_string(i) + ".png", true);
 	sgct::TextureManager::instance()->loadTexture("playerbump", rootDir + "/Images/avatarbump2.png", true);
 

@@ -15,7 +15,7 @@ public:
 	{
 		weapon = nullptr;
 		slowdown = 0.3f;
-		scale = 0.1f;
+		scale = 0.15f;
 
 		turn_speed = 3.0f;
 		acceleration = scale;

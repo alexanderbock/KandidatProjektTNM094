@@ -88,7 +88,7 @@ void Scene::initScene() {
 	systems.push_back(Body(models.earth));
 	temp = &systems[3];
 	temp->localTransformation = glm::translate(glm::mat4(), glm::vec3(-5.0f, 5.0f, -9.0f));
-	temp->selfTransformation = glm::scale(glm::mat4(), glm::vec3(0.5f));
+	temp->selfTransformation = glm::scale(glm::mat4(), glm::vec3(0.3f));
 
 	temp->subBodies.push_back(Body(models.moon));
 	temp->subBodies[0].localTransformation = glm::translate(glm::mat4(), glm::vec3(-20.0f, 0.0f, -3.0f));
